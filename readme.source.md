@@ -103,7 +103,7 @@
    borderRadius: 48, background: 'linear-gradient(135deg, #6622ee, #0088ff)',
    display: 'flex', alignItems: 'center', justifyContent: 'center',
  }}>
-   <img src="https://github.com/diwakar-bhagat.png" width={88} height={88} style={{ borderRadius: 44 }} />
+   <img src={github?.user?.avatarUrl || "https://github.com/diwakar-bhagat.png"} width={88} height={88} style={{ borderRadius: 44 }} />
  </div>
 
  <div style={{ display:'flex', flexDirection:'column', marginLeft:168, gap:8, zIndex: 10 }}>
