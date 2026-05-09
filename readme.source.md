@@ -250,9 +250,9 @@
 ```aura width=860 height=168
 (function() {
  var categories = [
-   { title: 'Core Stack', color: '#a78bfa', items: ['Python', 'PyTorch', 'FastAPI'] },
-   { title: 'Infrastructure', color: '#60a5fa', items: ['PostgreSQL', 'Redis', 'Docker'] },
-   { title: 'Focus Areas', color: '#fb7185', items: ['AI/ML', 'ERP Dashboards', 'Workflow Orchestration'] },
+   { title: 'Core Stack', color: '#a78bfa', items: ['JavaScript', 'TypeScript', 'Python', 'Kotlin'] },
+   { title: 'Infrastructure', color: '#60a5fa', items: ['PostgreSQL', 'Redis', 'Docker', 'PHP'] },
+   { title: 'Focus Areas', color: '#fb7185', items: ['AI/ML', 'Workflow Automation', 'Infrastructure Abstractions'] },
  ];
 
  return (
