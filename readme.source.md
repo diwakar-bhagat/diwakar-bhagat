@@ -1,5 +1,3 @@
-# Diwakar Bhagat
-
 ```aura width=860 height=200 link="https://github.com/diwakar-bhagat"
  <div style={{
  width: '100%', height: '100%', background: '#08080c',
@@ -114,7 +112,7 @@
      Building AI/ML systems, workflow tooling, and infrastructure.
    </div>
    <div style={{ display:'flex', gap:8, marginTop:6 }}>
-     {['Python', 'PyTorch', 'Distributed Systems'].map(function(tag) {
+     {['TypeScript', 'Python', 'AI/ML'].map(function(tag) {
        return (
          <div key={tag} style={{
            display:'flex', padding:'4px 12px', borderRadius:20,
@@ -131,9 +129,9 @@
 ```aura width=860 height=140
 (function() {
  var stats = [
-   { label: 'Repos', value: String(github?.stats?.totalRepos ?? 0), color: '#a78bfa' },
-   { label: 'Stars', value: String(github?.stats?.totalStars ?? 0), color: '#60a5fa' },
-   { label: 'Commits', value: String(github?.stats?.totalCommits ?? 0), color: '#f59e0b' },
+   { label: 'Repos', value: String(github?.stats?.totalRepos ?? 31), color: '#a78bfa' },
+   { label: 'Stars', value: String(github?.stats?.totalStars ?? 3), color: '#60a5fa' },
+   { label: 'Commits', value: String(github?.stats?.totalCommits ?? '500+'), color: '#f59e0b' },
  ];
 
  return (
@@ -235,17 +233,6 @@
  );
 })()
 ```
-
-## 🎯 Currently Interested In
-
-- **Motion Representation Learning**: Exploring how machines understand and represent movement.
-- **AI-Native ERP Systems**: Reimagining enterprise resource planning with intelligence at the core.
-- **Distributed Automation**: Designing pipelines that coordinate complex tasks at scale.
-- **Internal Tooling**: Reducing operational overhead through elegant automation.
-
----
-
-## 🛠️ Technical Ecosystem
 
 ```aura width=860 height=260
 (function() {
@@ -390,21 +377,7 @@
 })()
 ```
 
----
-
-## 🧭 Current Direction
-
-Lately spending more time thinking about:
-- **Workflow Orchestration**: How to manage complex dependencies with reliability.
-- **Infrastructure Abstractions**: Making the underlying systems invisible to the user.
-- **AI-Assisted Operations**: Automating the "boring" parts of system management.
-- **System Reliability**: Ensuring stability under real-world usage and high coordination scale.
-
----
-
 <div align="center">
-
-## 🌐 Connect with Diwakar
 
 ```aura width=120 height=44 link="https://linkedin.com/in/diwakarbhagat" inline align=center
 <SocialMediaButton
@@ -474,7 +447,5 @@ Lately spending more time thinking about:
 />
 ```
 
-<br>
-<p align="center"><sub>𝗉𝗈𝗐𝖾𝗋𝖾𝖽 𝖻𝗒 <a href="https://github.com/collectioneur/readme-aura">𝗋𝖾𝖺𝖽𝗆𝖾-𝖺𝗎𝗋𝖺</a></sub></p>
 
 </div>
