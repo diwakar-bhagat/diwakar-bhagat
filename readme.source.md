@@ -1,63 +1,117 @@
 # Diwakar Bhagat
-```aura width=860 height=260 link="https://github.com/diwakar-bhagat"
+
+```aura width=860 height=200 link="https://github.com/diwakar-bhagat"
 <div style={{
-  width: '100%', height: '100%', background: '#050508',
+  width: '100%', height: '100%', background: '#08080c',
   display: 'flex', alignItems: 'center', fontFamily: 'Inter',
-  position: 'relative', overflow: 'hidden', borderRadius: 24,
-  border: '1px solid rgba(110,80,220,0.3)'
+  position: 'relative', overflow: 'hidden', borderRadius: 16,
+  border: '1px solid rgba(110,80,220,0.18)'
 }}>
 
   <style>{`
-      @keyframes float-particle {
-        0% { transform: translate(0, 0); opacity: 0; }
-        50% { opacity: 0.8; }
-        100% { transform: translate(120px, -60px); opacity: 0; }
+      @keyframes float-slow {
+        0%, 100% { transform: translateX(0px); opacity: 0.8; }
+        50% { transform: translateX(350px); opacity: 1.2; }
       }
-      @keyframes pulse-soft {
-        0%, 100% { opacity: 0.4; transform: scale(1); }
-        50% { opacity: 0.7; transform: scale(1.1); }
+      @keyframes float-medium {
+        0%, 100% { transform: translateX(0px); opacity: 0.7; }
+        50% { transform: translateX(-250px); opacity: 1.1; }
       }
-      #bg-glow { animation: pulse-soft 12s ease-in-out infinite; }
+      #glow-1 { animation: float-slow 8s ease-in-out infinite; }
+      #glow-2 { animation: float-medium 12s ease-in-out infinite; }
     `}</style>
 
-  {/* Background Effects */}
-  <svg width="860" height="260" style={{ position: 'absolute', top: 0, left: 0 }}>
+  <svg width="860" height="200" style={{ position: 'absolute', top: 0, left: 0 }}>
     <defs>
-      <radialGradient id="hgrad1" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stopColor="rgba(102, 34, 238, 0.4)" />
-        <stop offset="100%" stopColor="rgba(102, 34, 238, 0)" />
+      <radialGradient id="g1" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stopColor="rgba(110,20,210,0.72)" />
+        <stop offset="40%" stopColor="rgba(90,15,180,0.35)" />
+        <stop offset="70%" stopColor="rgba(90,15,180,0)" />
+      </radialGradient>
+      <radialGradient id="g2" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stopColor="rgba(40,60,255,0.6)" />
+        <stop offset="45%" stopColor="rgba(30,50,200,0.25)" />
+        <stop offset="70%" stopColor="rgba(30,50,200,0)" />
       </radialGradient>
     </defs>
-    <circle id="bg-glow" cx="150" cy="130" r="200" fill="url(#hgrad1)" />
+    <ellipse id="glow-1" cx="180" cy="230" rx="260" ry="190" fill="url(#g1)" />
+    <ellipse id="glow-2" cx="700" cy="240" rx="220" ry="160" fill="url(#g2)" />
   </svg>
 
   <div style={{
-    marginLeft: 60, width: 120, height: 120,
-    borderRadius: 60, background: 'linear-gradient(135deg, #6622ee, #0088ff)',
+    position: 'absolute', left: 48, top: 52, width: 96, height: 96,
+    borderRadius: 48, background: 'linear-gradient(135deg, #6622ee, #0088ff)',
     display: 'flex', alignItems: 'center', justifyContent: 'center',
-    boxShadow: '0 0 40px rgba(102, 34, 238, 0.5)',
-    border: '4px solid rgba(255,255,255,0.15)',
-    zIndex: 2
+    border: '2px solid rgba(255,255,255,0.1)',
+    overflow: 'hidden'
   }}>
-    <div style={{ fontSize: 64 }}>⚡</div>
+    <img 
+      src="https://github.com/diwakar-bhagat.png" 
+      style={{ width: 88, height: 88, borderRadius: 44 }} 
+    />
   </div>
 
-  <div style={{ display:'flex', flexDirection:'column', marginLeft:40, gap:12, zIndex: 2 }}>
-    <div style={{ 
-      display:'flex', fontSize:54, fontWeight:900, color:'#ffffff', 
-      letterSpacing:'-2px', lineHeight:1,
-      textShadow: '0 10px 30px rgba(0,0,0,0.6)'
-    }}>
+  <div style={{ display:'flex', flexDirection:'column', marginLeft:168, gap:8, zIndex: 10 }}>
+    <div style={{ display:'flex', fontSize:38, fontWeight:800, color:'#ffffff', letterSpacing:'-1px', lineHeight:1 }}>
       Diwakar Bhagat
     </div>
-    <div style={{ display:'flex', fontSize:19, color:'rgba(255,255,255,0.7)', fontWeight:500, letterSpacing:'0.2px', maxWidth: 500 }}>
+    <div style={{ display:'flex', fontSize:15, color:'rgba(180,165,255,0.8)', fontWeight:400, letterSpacing:'0.3px' }}>
       Building AI/ML systems, workflow tooling, and infrastructure.
     </div>
-    <div style={{ display:'flex', fontSize:14, color:'rgba(255,255,255,0.4)', fontStyle: 'italic' }}>
-      "Trying to make complex systems feel less chaotic to operate."
+    <div style={{ display:'flex', gap:8, marginTop:6 }}>
+      {['Python', 'PyTorch', 'Distributed Systems'].map(function(tag) {
+        return (
+          <div key={tag} style={{
+            display:'flex', padding:'4px 12px', borderRadius:20,
+            background:'rgba(80,40,220,0.18)', border:'1px solid rgba(100,70,240,0.32)',
+            color:'rgba(205,195,255,0.85)', fontSize:12, fontWeight:600,
+          }}>{tag}</div>
+        );
+      })}
     </div>
   </div>
 </div>
+```
+
+```aura width=860 height=140
+(function() {
+  var stats = [
+    { label: 'Repos', value: String(github?.stats?.totalRepos ?? 0), color: '#a78bfa' },
+    { label: 'Stars', value: String(github?.stats?.totalStars ?? 0), color: '#60a5fa' },
+    { label: 'Commits', value: String(github?.stats?.totalCommits ?? 0), color: '#f59e0b' },
+    { label: 'PRs', value: String(github?.stats?.totalPRs ?? 0), color: '#fb7185' },
+  ];
+
+  return (
+    <div style={{
+      width: '100%', height: '100%',
+      background: '#08080c',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      fontFamily: 'Inter', borderRadius: 16,
+      border: '1px solid rgba(110,80,220,0.18)',
+      position: 'relative', overflow: 'hidden',
+    }}>
+      {stats.map(function(s, i) {
+        return (
+          <div key={s.label} style={{
+            flexGrow: 1, display: 'flex', flexDirection: 'column',
+            alignItems: 'center', justifyContent: 'center',
+            padding: '16px 8px',
+            borderRight: i < stats.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none',
+            gap: 5,
+          }}>
+            <div style={{ display:'flex', fontSize:30, fontWeight:800, color:s.color, lineHeight:1 }}>
+              {s.value}
+            </div>
+            <div style={{ display:'flex', fontSize:11, color:'rgba(200,195,225,0.45)', fontWeight:600, letterSpacing:'1.5px' }}>
+              {s.label.toUpperCase()}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+})()
 ```
 
 ## 🎯 Currently Interested In
@@ -71,85 +125,52 @@
 
 ## 💎 Selected Work
 
-```aura width=860 height=300
-<div style={{
-  width: '100%', height: '100%', background: '#0a0a0f',
-  display: 'flex', flexDirection: 'column', padding: 40,
-  fontFamily: 'Inter', color: '#fff', borderRadius: 24,
-  border: '1px solid rgba(255,255,255,0.08)',
-  position: 'relative', overflow: 'hidden'
-}}>
-  <div style={{ display: 'flex', gap: 20 }}>
-    {[
-      { 
-        title: 'Workflow Automation', 
-        desc: 'Tooling for research & documentation to reduce repetitive manual coordination.', 
-        icon: '🔧', color: '#6622ee' 
-      },
-      { 
-        title: 'ERP Infrastructure', 
-        desc: 'API-first systems focused on scalability and operational visibility.', 
-        icon: '🏗️', color: '#0088ff' 
-      },
-      { 
-        title: 'AI Internal Tools', 
-        desc: 'Practical AI integrations for data handling and system orchestration.', 
-        icon: '🧠', color: '#00ccbb' 
-      }
-    ].map((item, i) => (
-      <div key={i} style={{
-        flex: 1, padding: 28, background: 'linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%)',
-        borderRadius: 20, border: '1px solid rgba(255,255,255,0.12)',
-        display: 'flex', flexDirection: 'column', gap: 16
-      }}>
-        <div style={{ 
-          width: 52, height: 52, borderRadius: 14, 
-          background: item.color + '22', 
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontSize: 28, border: '1px solid ' + item.color + '44'
-        }}>
-          {item.icon}
-        </div>
-        <div style={{ fontSize: 22, fontWeight: 800, letterSpacing: '-0.5px' }}>{item.title}</div>
-        <div style={{ fontSize: 14, color: '#999', lineHeight: 1.6 }}>{item.desc}</div>
+```aura width=860 height=168
+(function() {
+  var categories = [
+    { title: 'Core Stack', color: '#a78bfa', items: ['Python', 'PyTorch', 'FastAPI'] },
+    { title: 'Infrastructure', color: '#60a5fa', items: ['PostgreSQL', 'Redis', 'Docker'] },
+    { title: 'Focus Areas', color: '#fb7185', items: ['AI/ML', 'ERP Dashboards', 'Workflow Orchestration'] },
+  ];
+
+  return (
+    <div style={{
+      width: '100%', height: '100%',
+      background: '#08080c',
+      display: 'flex', flexDirection: 'column',
+      fontFamily: 'Inter', padding: '24px 32px', gap: 14,
+      borderRadius: 16, border: '1px solid rgba(110,80,220,0.18)',
+      position: 'relative', overflow: 'hidden',
+    }}>
+      <div style={{ display:'flex', fontSize:10, fontWeight:700, color:'rgba(155,140,210,0.5)', letterSpacing:'3px' }}>
+        TECHNICAL FOCUS
       </div>
-    ))}
-  </div>
-</div>
-```
-
-## 🛠️ Technical Focus
-
-```aura width=860 height=140
-<div style={{
-  width: '100%', height: '100%', background: '#08080c',
-  display: 'flex', alignItems: 'center', justifyContent: 'space-around',
-  fontFamily: 'Inter', borderRadius: 24, border: '1px solid rgba(255,255,255,0.06)'
-}}>
-  {[
-    'Python', 'PyTorch', 'FastAPI', 'PostgreSQL', 'Redis', 'Docker'
-  ].map((tech, i) => (
-    <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
-      <div style={{ 
-        width: 12, height: 12, borderRadius: 6, 
-        background: 'linear-gradient(135deg, #6622ee, #0088ff)',
-        boxShadow: '0 0 10px rgba(102, 34, 238, 0.5)'
-      }} />
-      <div style={{ fontSize: 18, fontWeight: 900, color: '#fff', letterSpacing: '-0.5px' }}>{tech}</div>
+      <div style={{ display:'flex', flexDirection:'column', gap:12 }}>
+        {categories.map(function(cat) {
+          return (
+            <div key={cat.title} style={{ display:'flex', alignItems:'center', gap:16 }}>
+              <div style={{ display:'flex', fontSize:10, fontWeight:700, color:cat.color, letterSpacing:'1px', width:100 }}>
+                {cat.title.toUpperCase()}
+              </div>
+              <div style={{ display:'flex', flexWrap:'wrap', gap:7 }}>
+                {cat.items.map(function(item) {
+                  return (
+                    <div key={item} style={{
+                      display:'flex', padding:'4px 13px', borderRadius:6,
+                      background:cat.color + '15', border:'1px solid ' + cat.color + '35',
+                      color:'rgba(225,220,255,0.85)', fontSize:12, fontWeight:600,
+                    }}>{item}</div>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
-  ))}
-</div>
+  );
+})()
 ```
-
----
-
-## 🧭 Current Direction
-
-Lately spending more time thinking about:
-- **Workflow Orchestration**: How to manage complex dependencies with reliability.
-- **Infrastructure Abstractions**: Making the underlying systems invisible to the user.
-- **AI-Assisted Operations**: Automating the "boring" parts of system management.
-- **System Reliability**: Ensuring stability under real-world usage and high coordination scale.
 
 ---
 
@@ -157,54 +178,58 @@ Lately spending more time thinking about:
 
 ## 🌐 Connect with Diwakar
 
-```aura width=160 height=52 inline link="https://your-portfolio.com"
-<div style={{
-  width: '100%', height: '100%', background: '#111',
-  display: 'flex', alignItems: 'center', justifyContent: 'center',
-  borderRadius: 14, color: '#fff', fontSize: 16, fontWeight: 800,
-  border: '1px solid rgba(255,255,255,0.12)', gap: 8
-}}>
-  <span>Portfolio</span>
-</div>
+```aura width=130 height=44 link="https://linkedin.com/in/diwakarbhagat" inline align=center
+<SocialMediaButton
+  icon="https://raw.githubusercontent.com/collectioneur/collectioneur/main/icons/linkedin-icon.png"
+  text="Linkedin"
+  backgroundColor="#000000"
+  width={130}
+  height={44}
+  gradientStops={[
+    { offset: '0%', color: '#b57af9' },
+    { offset: '30%', color: '#000000' },
+    { offset: '60%', color: '#9d6bf0' },
+    { offset: '80%', color: '#000000' },
+    { offset: '100%', color: '#c89dfb' },
+  ]}
+/>
 ```
 
-```aura width=160 height=52 inline link="https://linkedin.com/in/diwakarbhagat"
-<div style={{
-  width: '100%', height: '100%', background: '#0077b5',
-  display: 'flex', alignItems: 'center', justifyContent: 'center',
-  borderRadius: 14, color: '#fff', fontSize: 16, fontWeight: 800,
-  marginLeft: 14, gap: 8
-}}>
-  <span>LinkedIn</span>
-</div>
+```aura width=130 height=44 link="https://x.com/Diwakarjiii" inline align=center
+<SocialMediaButton
+  icon="https://raw.githubusercontent.com/collectioneur/collectioneur/main/icons/x-icon.svg"
+  text="Twitter"
+  backgroundColor="#000000"
+  width={130}
+  height={44}
+  gradientStops={[
+    { offset: '0%', color: '#818cf8' },
+    { offset: '30%', color: '#000000' },
+    { offset: '60%', color: '#9298f8' },
+    { offset: '80%', color: '#000000' },
+    { offset: '100%', color: '#7479f5' },
+  ]}
+/>
 ```
 
-```aura width=160 height=52 inline link="mailto:your-email@example.com"
-<div style={{
-  width: '100%', height: '100%', background: '#ff4466',
-  display: 'flex', alignItems: 'center', justifyContent: 'center',
-  borderRadius: 14, color: '#fff', fontSize: 16, fontWeight: 800,
-  marginLeft: 14, gap: 8
-}}>
-  <span>Email</span>
-</div>
+```aura width=130 height=44 link="mailto:your-email@example.com" inline align=center
+<SocialMediaButton
+  icon="https://raw.githubusercontent.com/collectioneur/collectioneur/main/icons/gmail-icon.svg"
+  text="Email"
+  backgroundColor="#000000"
+  width={130}
+  height={44}
+  gradientStops={[
+    { offset: '0%', color: '#d855f7' },
+    { offset: '30%', color: '#000000' },
+    { offset: '60%', color: '#b557e8' },
+    { offset: '80%', color: '#000000' },
+    { offset: '100%', color: '#cc6ef9' },
+  ]}
+/>
 ```
 
-<br/>
-<br/>
-
-```aura width=860 height=40 link="https://github.com/collectioneur/readme-aura"
-  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%' }}>
-    <div style={{ 
-      display: 'flex', alignItems: 'center', gap: 8,
-      padding: '6px 20px', borderRadius: 24, background: 'rgba(255,255,255,0.04)',
-      border: '1px solid rgba(255,255,255,0.06)'
-    }}>
-      <span style={{ fontSize: 11, color: '#444', fontWeight: 900, letterSpacing: '1.2px' }}>
-        POWERED BY README-AURA 0.4.5
-      </span>
-    </div>
-  </div>
-```
+<br>
+<p align="center"><sub>𝗉𝗈𝗐𝖾𝗋𝖾𝖽 𝖻𝗒 <a href="https://github.com/collectioneur/readme-aura">𝗋𝖾𝖺𝖽𝗆𝖾-𝖺𝗎𝗋𝖺</a></sub></p>
 
 </div>
