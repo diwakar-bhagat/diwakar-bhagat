@@ -377,6 +377,14 @@
 })()
 ```
 
+<br/>
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/diwakar-bhagat/diwakar-bhagat/output/github-contribution-grid-snake-dark.svg" alt="Snake animation" />
+</div>
+
+<br/>
+
 <div align="center">
 
 ```aura width=120 height=44 link="https://linkedin.com/in/diwakarbhagat" inline align=center
